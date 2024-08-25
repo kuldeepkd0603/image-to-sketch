@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Pencil Sketch Converter</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mt-5">Image to Pencil Sketch Converter</h1>
+        <form method="POST" enctype="multipart/form-data" class="text-center mt-5">
+            <div class="form-group">
+                <input type="file" name="file" class="form-control-file">
+            </div>
+            <button type="submit" class="btn btn-primary">Convert to Sketch</button>
+        </form>
+        
+        {% if sketch_image %}
+        <div class="text-center mt-5">
+            <h3>Original Image</h3>
+            <img src="{{ url_for('static', filename='uploads/' ~ sketch_image.split('/')[-1][7:]) }}" class="img-thumbnail">
+            <h3 class="mt-3">Pencil Sketch</h3>
+            <img src="{{ url_for('static', filename='uploads/' ~ sketch_image.split('/')[-1]) }}" class="img-thumbnail">
+            <br><br>
+            <a href="{{ url_for('download_file', filename=sketch_image.split('/')[-1]) }}" class="btn btn-success">Download Sketch</a>
+            <a href="{{ url_for('delete_file', filename=sketch_image.split('/')[-1]) }}" class="btn btn-danger">Delete Sketch</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
