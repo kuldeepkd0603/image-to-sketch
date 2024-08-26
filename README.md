@@ -27,7 +27,7 @@ The **Image to Pencil Sketch Converter** is a web application built using Flask 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/kuldeepkd0603/image-to-sketch.git
-   cd image-to-pencil-sketch-converter
+   cd image-to-sketch
    ```
 
 2. **Create a virtual environment (optional but recommended):**
